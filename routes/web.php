@@ -5,4 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[FrontController::class, "index"])->name('home');
 
-Route::get('/info-student', [FrontController::class, 'info'])->name('student_info');
+Route::POST('/info-student', [FrontController::class, 'info'])->name('student_info');
