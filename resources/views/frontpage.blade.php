@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
 
-        <div class="flex-shrink-0 flex items-center gap-2">
+        <div class="shrink-0 flex items-center gap-2">
           <svg class="h-8 w-auto text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.263 15.918a9 9 0 1 0 15.474 0M12 3v13.5M9 16.5v.008H9.008V16.5H9Zm6 0v.008h.008V16.5H15Z" />
           </svg>
