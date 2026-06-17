@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student_admission;
 
 class FrontController extends Controller
 {
@@ -21,8 +22,7 @@ class FrontController extends Controller
       'full_name' => 'required|max:50|min:2',
       'email' => 'nullable|email',
       'parent_name' => 'required|max:50|min:5',
-      'phone' => 'required|digits_between:11,14',
-      // 'payment_information' => 'required|max:100',
+      'phone_number' => 'required|digits_between:11,14',
       'payment_method' => 'required',
       'transaction_id' => 'required|max:50|min:5',
       'amount' => 'required|numeric|min:1',
@@ -38,9 +38,9 @@ class FrontController extends Controller
       'parent_name.min'              => 'Parent name must be at least 5 characters',
       'parent_name.max'              => 'Parent name cannot exceed 50 characters',
 
-      'phone.required'               => 'Type your phone number',
-      'phone.digits'                 => 'Phone number must be 11 digits',
-      'phone.digits_between'         => 'Phone number is not valid',
+      'phone_number.required'               => 'Type your phone number',
+      'phone_number.digits'                 => 'Phone number must be 11 digits',
+      'phone_number.digits_between'         => 'Phone number is not valid',
 
       'payment_method.required'      => 'Select a payment method',
 
@@ -52,6 +52,11 @@ class FrontController extends Controller
       'amount.numeric'               => 'Amount must be a number',
       'amount.min'                   => 'Amount must be greater than 0',
     ]);
+
+    Student_admission::create($request->all());
+    return back()->with('alert', [
+      'type' => 'success',
+      'msg' => 'Data saved successfully',
+    ]);
   }
-  
 }

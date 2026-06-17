@@ -36,7 +36,11 @@
 
     <!-- Form Card -->
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-10">
-
+      @if(session()->has('alert'))
+      <div class="bg-green-200 text-green-700 p-4">
+        {{ session('alert')['msg'] }}
+      </div>
+      @endif
       <!-- Form Header -->
       <div class="mb-8 border-b border-gray-100 pb-6">
         <h2 class="text-2xl font-bold text-gray-900">Application for Admission</h2>
@@ -53,16 +57,16 @@
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-              <input type="text" id="full-name" name="full-name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
-              @error('full-name')
+              <input type="text" id="full-name" name="full_name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
+              @error('full_name')
               <span class="text-red-500">{{ $message }}</span>
               @enderror
             </div>
 
             <div>
               <label for="parent-name" class="block text-sm font-medium text-gray-700 mb-1">Parent / Guardian's Name</label>
-              <input type="text" id="parent-name" name="parent-name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
-              @error('parent-name')
+              <input type="text" id="parent-name" name="parent_name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
+              @error('parent_name')
               <span class="text-red-500">{{ $message }}</span>
               @enderror
             </div>
@@ -76,9 +80,9 @@
             </div>
 
             <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
-              @error('phone')
+              <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" id="phone" name="phone_number" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
+              @error('phone_number')
               <span class="text-red-500">{{ $message }}</span>
               @enderror
             </div>
@@ -102,20 +106,20 @@
 
             <div class="sm:col-span-2">
               <label for="payment-method" class="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
-              <select id="payment-method" name="payment-method" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm bg-white">
+              <select id="payment-method" name="payment_method" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm bg-white">
                 <option value="">Select a method</option>
                 <option value="credit-card">Credit / Debit Card</option>
                 <option value="bank-transfer">Bank Transfer</option>
                 <option value="bkash">Mobile Banking</option>
               </select>
-              @error('payment-method')
+              @error('payment_method')
               <span class="text-red-500 text-sm">{{ $message }}</span>
               @enderror
 
               <div>
                 <label for="transaction-id" class="block text-sm font-medium text-gray-700 mb-1">Transaction ID / Reference</label>
-                <input type="text" id="transaction-id" name="transaction-id" placeholder="e.g. TXN12345678" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
-                @error('transaction-id')
+                <input type="text" id="transaction-id" name="transaction_id" placeholder="e.g. TXN12345678" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
+                @error('transaction_id')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
               </div>

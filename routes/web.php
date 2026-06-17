@@ -15,4 +15,9 @@ Route::GET('/register', function () {
 
 Route::POST('/info-student', [FrontController::class, 'info'])->name('student_info');
 
+// Auth::routes(); // (Auth scaffolding not present in this project)
 
+
+Route::get('/student-list', function(){
+ echo "Student list...";
+});
